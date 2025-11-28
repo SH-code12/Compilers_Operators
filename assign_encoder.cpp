@@ -1,4 +1,7 @@
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -99,10 +102,50 @@ void Encode(int n, char* s[])
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
+class tinyProgram{
+    private:
+    int value;
+public:
+    void greet() {
+        cout << "Hello from tinyProgram!" << endl;
+    }
+    void setValue(int v) {
+        value = v;
+    }
+    int getValue() {
+        return value;
+    }
+    // Constructor
+    tinyProgram(int val = 0) : value(val) {}
+    // Destructor
+    ~tinyProgram() {
+        cout << "tinyProgram with value " << value << " is being destroyed." << endl;
+    }
+
+    // overload the - operator
+    tinyProgram operator-(const tinyProgram& other) {
+        return tinyProgram(this->value - other.value);
+    }
+
+
+    // overload the << operator for easy output
+    friend ostream& operator<<(ostream& os, const tinyProgram& tp) {
+        os << "tinyProgram(value=" << tp.value << ")";
+        return os;
+    }
+
+};
 
 int main(int argc, char* argv[])
 {
-    Encode(argc, argv);
+        // Encode(argc, argv);
+        tinyProgram a(5);
+        tinyProgram b(3);
+ 
+        tinyProgram d = a - b;
+        cout << "Result of a - b: " << d << endl;
+
+
 
     return 0;
 }
