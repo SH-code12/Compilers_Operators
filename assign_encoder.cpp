@@ -140,6 +140,12 @@ public:
         return tinyProgram(result);   
     }
 
+    // overload the & operator
+    tinyProgram operator&(const tinyProgram& other) {
+        tinyProgram x = 2;
+        return tinyProgram((this->value * value) - (other.value * other.value));
+    }
+
 
     // overload the << operator for easy output
     friend ostream& operator<<(ostream& os, const tinyProgram& tp) {
@@ -152,8 +158,8 @@ public:
 int main(int argc, char* argv[])
 {
         // Encode(argc, argv);
-        tinyProgram a(5);
-        tinyProgram b(3);
+        tinyProgram a(3);
+        tinyProgram b(2);
 
 
         tinyProgram d = a - b;
@@ -164,6 +170,10 @@ int main(int argc, char* argv[])
 
         tinyProgram f = a ^ b;
         cout << "Result of a ^ b: " << f << endl;
+
+        tinyProgram g = a & b;
+        cout << "Result of a & b: " << g << endl;
+
 
 
     return 0;
