@@ -131,6 +131,14 @@ public:
         return tinyProgram(this->value * other.value);
     }
 
+    // overload the ^ operator
+    tinyProgram operator^(const tinyProgram& other) {
+        int result = 1;
+        for(int i=0;i<other.value;i++) {
+            result *= value;
+        }
+        return tinyProgram(result);   
+    }
 
 
     // overload the << operator for easy output
@@ -153,6 +161,9 @@ int main(int argc, char* argv[])
 
         tinyProgram e = a * b;
         cout << "Result of a * b: " << e << endl;
+
+        tinyProgram f = a ^ b;
+        cout << "Result of a ^ b: " << f << endl;
 
 
     return 0;
