@@ -142,8 +142,16 @@ public:
 
     // overload the & operator
     tinyProgram operator&(const tinyProgram& other) {
-        tinyProgram x = 2;
         return tinyProgram((this->value * value) - (other.value * other.value));
+    }
+
+    // overload the / operator
+    tinyProgram operator/(const tinyProgram& other) {
+        if(other.value == 0) {
+            cout << "Error: Division by zero!" << endl;
+            return tinyProgram(0); 
+        }
+        return tinyProgram(this->value / other.value);
     }
 
 
@@ -158,8 +166,8 @@ public:
 int main(int argc, char* argv[])
 {
         // Encode(argc, argv);
-        tinyProgram a(3);
-        tinyProgram b(2);
+        tinyProgram a(15);
+        tinyProgram b(5);
 
 
         tinyProgram d = a - b;
@@ -173,6 +181,9 @@ int main(int argc, char* argv[])
 
         tinyProgram g = a & b;
         cout << "Result of a & b: " << g << endl;
+
+        tinyProgram h = a / b;
+        cout << "Result of a / b: " << h << endl;
 
 
 
