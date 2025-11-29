@@ -132,12 +132,17 @@ public:
     }
 
     // overload the ^ operator
-    tinyProgram operator^(const tinyProgram& other) {
+    tinyProgram operator^(const tinyProgram& other) const {
+        int base = value;
+        int exp  = other.value;
+        if (exp < 0) {
+            return tinyProgram(0);
+        } 
         int result = 1;
-        for(int i=0;i<other.value;i++) {
-            result *= value;
+        for (int i = 0; i < exp; ++i) {
+            result *= base; 
         }
-        return tinyProgram(result);   
+        return tinyProgram(result);
     }
 
     // overload the & operator
@@ -184,8 +189,6 @@ int main(int argc, char* argv[])
 
         tinyProgram h = a / b;
         cout << "Result of a / b: " << h << endl;
-
-
 
     return 0;
 }
