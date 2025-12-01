@@ -178,7 +178,7 @@ static void skip_spaces();
 static bool parse_number(ll &out_value);
 static ll parse_expression();
 static ll parse_primary();
-static ll parse_powlevel();
+static ll parse_pow();
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // Function to skip spaces, tabs, and newlines
 static void skip_spaces()
@@ -266,7 +266,7 @@ static ll int_pow(ll base, ll exp)
 }
 
 // Function to compute integer power
-static ll parse_powlevel()
+static ll parse_pow()
 {
     ll left = parse_primary();
     skip_spaces();
@@ -274,7 +274,7 @@ static ll parse_powlevel()
     {
         ++input_ptr; 
         // compute right side first
-        ll right = parse_powlevel();
+        ll right = parse_pow();
         // ^ as exponentiation: left ^ right = left^(right)
         ll val = int_pow(left, right);
         return val;
@@ -286,7 +286,7 @@ static ll parse_powlevel()
 // top-level expression
 static ll parse_expression()
 {
-    return parse_powlevel(); // will replaced with low level parsing later
+    return parse_pow(); // will replaced with low level parsing later
 }
 
 // Evaluate a single expression string
