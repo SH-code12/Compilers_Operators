@@ -167,6 +167,41 @@ public:
     }
 
 };
+//////////////////////////////////////////////////////////////////////////////////////////
+// Global variable to hold the input pointer
+static const char* input_ptr;
+
+// Function to skip spaces, tabs, and newlines
+static void skip_spaces()
+{
+    while (*input_ptr == ' ' || *input_ptr == '\t' || *input_ptr == '\n' || *input_ptr == '\r'){
+            ++input_ptr;
+    }
+}
+// Type alias for long long
+using ll = long long;
+
+// Function to parse a number from the input
+// returns true if a number was read, false otherwise
+static bool parse_number(long long &out_value)
+{
+    skip_spaces();
+    const char* start = input_ptr;
+    //  here accept digits only
+    if (*input_ptr < '0' || *input_ptr > '9') {
+        return false;
+    }
+    ll temp = 0;
+    while (*input_ptr >= '0' && *input_ptr <= '9')
+    {
+        temp = temp * 10 + (int)(*input_ptr - '0');
+        ++input_ptr;
+    }
+    out_value = temp;
+    (void)start;
+    return true;
+}
+
 
 int main(int argc, char* argv[])
 {
