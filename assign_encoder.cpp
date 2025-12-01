@@ -170,7 +170,16 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////
 // Global variable to hold the input pointer
 static const char* input_ptr;
-
+// Type alias for long long
+using ll = long long;
+///////////////////////////////////////////////////////////////////////////////////////////////
+// Function declarations
+static void skip_spaces();
+static bool parse_number(ll &out_value);
+static ll parse_expression();
+static ll parse_primary();
+static ll parse_powlevel();
+///////////////////////////////////////////////////////////////////////////////////////////////
 // Function to skip spaces, tabs, and newlines
 static void skip_spaces()
 {
@@ -178,12 +187,11 @@ static void skip_spaces()
             ++input_ptr;
     }
 }
-// Type alias for long long
-using ll = long long;
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 // Function to parse a number from the input
 // returns true if a number was read, false otherwise
-static bool parse_number(long long &out_value)
+static bool parse_number(ll &out_value)
 {
     skip_spaces();
     const char* start = input_ptr;
@@ -201,29 +209,125 @@ static bool parse_number(long long &out_value)
     (void)start;
     return true;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+// parse primary: number, parenthesis, or unary +/- primary
+static ll parse_primary()
+{
+    skip_spaces();
+    if (*input_ptr == '+' || *input_ptr == '-')
+    {
+        // + or -
+        char sign = *input_ptr;
+        ++input_ptr;
+        ll val = parse_primary();
+        return (sign == '-') ? -val : val;
+    }
+    else if (*input_ptr == '(')
+    {
+        ++input_ptr; 
+        ll val = parse_expression();
+        skip_spaces();
+        if (*input_ptr == ')') {
+            ++input_ptr;
+        } 
+        return val;
+    }
+    else
+    {
+        long long num = 0;
+        if (parse_number(num)) return num;
+
+        // if not a number or parenthesis, treat as zero to avoid infinite loop
+        if (*input_ptr != 0) {
+            ++input_ptr;
+        }
+        return 0;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+// Function to compute integer power
+static ll int_pow(ll base, ll exp)
+{
+    if (exp < 0) {
+        return 0;
+    } 
+    ll result = 1;
+    while (exp > 0)
+    {
+        if (exp & 1LL) {
+            result = result * base;
+        }
+        base = base * base;
+        exp >>= 1LL;
+    }
+    return result;
+}
+
+// Function to compute integer power
+static ll parse_powlevel()
+{
+    ll left = parse_primary();
+    skip_spaces();
+    if (*input_ptr == '^')
+    {
+        ++input_ptr; 
+        // compute right side first
+        ll right = parse_powlevel();
+        // ^ as exponentiation: left ^ right = left^(right)
+        ll val = int_pow(left, right);
+        return val;
+    }
+    return left;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+// top-level expression
+static ll parse_expression()
+{
+    return parse_powlevel(); // will replaced with low level parsing later
+}
+
+// Evaluate a single expression string
+static ll evaluate_expression(const char* expr)
+{
+    input_ptr = expr;
+    ll result = parse_expression();
+    skip_spaces();
+    return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
 int main(int argc, char* argv[])
 {
         // Encode(argc, argv);
-        tinyProgram a(15);
-        tinyProgram b(5);
+        // tinyProgram a(15);
+        // tinyProgram b(5);
 
 
-        tinyProgram d = a - b;
-        cout << "Result of a - b: " << d << endl;
+        // tinyProgram d = a - b;
+        // cout << "Result of a - b: " << d << endl;
 
-        tinyProgram e = a * b;
-        cout << "Result of a * b: " << e << endl;
+        // tinyProgram e = a * b;
+        // cout << "Result of a * b: " << e << endl;
 
-        tinyProgram f = a ^ b;
-        cout << "Result of a ^ b: " << f << endl;
+        // tinyProgram f = a ^ b;
+        // cout << "Result of a ^ b: " << f << endl;
 
-        tinyProgram g = a & b;
-        cout << "Result of a & b: " << g << endl;
+        // tinyProgram g = a & b;
+        // cout << "Result of a & b: " << g << endl;
 
-        tinyProgram h = a / b;
-        cout << "Result of a / b: " << h << endl;
+        // tinyProgram h = a / b;
+        // cout << "Result of a / b: " << h << endl;
+
+        // Test Power Operator
+        const char* expr = "3 ^ 2 "; // should be (3^2) = 3^2 = 9
+        ll result = evaluate_expression(expr);
+        cout << "Result of expression '" << expr << "' is: " << result << endl;
+
+
 
     return 0;
 }
