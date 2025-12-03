@@ -160,7 +160,7 @@ static ll parse_and(){
     ll val = parse_pow();
     skip_spaces();
     while(*input_ptr++ == '&')
-    {
+    { 
         skip_spaces();
         ll val2 = parse_pow();
         val = (val * val) - (val2 * val2);
