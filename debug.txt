@@ -1,0 +1,1006 @@
+Start StmtSeq
+Start Stmt
+Start AssignStmt
+Start Match
+[6] := (Assign)
+Start Match
+[6] 3 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[6] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[6] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[6] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[7] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[7] x (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[7] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[8] y (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[8] := (Assign)
+Start Match
+[8] 5 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[8] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[8] 4 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[8] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[9] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[9] y (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[9] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[10] z (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[10] := (Assign)
+Start Match
+[10] 10 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[10] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[10] 5 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[10] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[11] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[11] z (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[11] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[14] va (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[14] := (Assign)
+Start Match
+[14] 2 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[14] + (Plus)
+End NewExpr
+End Factor
+End Term
+Start Match
+[14] 3 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[14] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[14] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[14] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[15] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[15] va (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[15] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[18] vb (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[18] := (Assign)
+Start Match
+[18] 2 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[18] * (Times)
+End NewExpr
+End Factor
+Start Match
+[18] 3 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[18] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[18] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[18] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[19] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[19] vb (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[19] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[22] vc (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[22] := (Assign)
+Start Match
+[22] 3 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[22] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[22] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[22] ^ (Power)
+End NewExpr
+Start Match
+[22] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[22] ; (SemiColon)
+End NewExpr
+End Factor
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[23] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[23] vc (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[23] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[26] vd (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[26] := (Assign)
+Start Match
+[26] 5 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[26] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[26] 4 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[26] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[26] 3 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[26] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[27] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[27] vd (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[27] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[30] ta (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[30] := (Assign)
+Start Match
+[30] 4 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[30] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[30] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[30] * (Times)
+End NewExpr
+End Factor
+Start Match
+[30] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[30] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[31] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[31] ta (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[31] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[33] tb (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[33] := (Assign)
+Start Match
+[33] 10 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[33] + (Plus)
+End NewExpr
+End Factor
+End Term
+Start Match
+[33] 4 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[33] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[33] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[33] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[34] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[34] tb (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[34] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[36] tc (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[36] := (Assign)
+Start Match
+[36] 20 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[36] - (Minus)
+End NewExpr
+End Factor
+End Term
+Start Match
+[36] 4 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[36] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[36] 3 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[36] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[37] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[37] tc (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[37] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[39] td (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[39] := (Assign)
+Start Match
+[39] 2 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[39] * (Times)
+End NewExpr
+End Factor
+Start Match
+[39] 3 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[39] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[39] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[39] + (Plus)
+End NewExpr
+End Factor
+End Term
+Start Match
+[39] 1 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[39] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[40] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[40] td (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[40] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[43] neg (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[43] := (Assign)
+Start Match
+[43] 2 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[43] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[43] 5 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[43] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[44] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[44] neg (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[44] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[47] za (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[47] := (Assign)
+Start Match
+[47] 5 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[47] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[47] 5 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[47] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[48] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[48] za (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[48] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[49] zb (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[49] := (Assign)
+Start Match
+[49] 0 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[49] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[49] 5 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[49] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[50] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[50] zb (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[50] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[53] pa (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[53] := (Assign)
+Start Match
+[53] 2 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[53] * (Times)
+End NewExpr
+End Factor
+Start Match
+[53] ( (LeftParen)
+Start Factor
+Start NewExpr
+Start Match
+[53] 3 (Num)
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[53] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[53] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[53] ) (RightParen)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+Start Match
+[53] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[54] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[54] pa (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[54] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[55] pb (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[55] := (Assign)
+Start Match
+[55] ( (LeftParen)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[55] 2 (Num)
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[55] * (Times)
+End NewExpr
+End Factor
+Start Match
+[55] 3 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[55] ) (RightParen)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+Start Match
+[55] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[55] 2 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[55] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[56] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[56] pb (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[56] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+Start Match
+[59] final (ID)
+Start Stmt
+Start AssignStmt
+Start Match
+[59] := (Assign)
+Start Match
+[59] 3 (Num)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[59] + (Plus)
+End NewExpr
+End Factor
+End Term
+Start Match
+[59] 2 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[59] * (Times)
+End NewExpr
+End Factor
+Start Match
+[59] 5 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[59] & (Anda)
+End NewExpr
+End Factor
+Start Match
+[59] 4 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[59] ^ (Power)
+End NewExpr
+Start Match
+[59] 1 (Num)
+Start Factor
+Start NewExpr
+Start Match
+[59] - (Minus)
+End NewExpr
+End Factor
+End Factor
+End Term
+Start Match
+[59] 1 (Num)
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[59] ; (SemiColon)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End AssignStmt
+End Stmt
+Start Match
+[60] write (Write)
+Start Stmt
+Start WriteStmt
+Start Match
+[60] final (ID)
+Start Expr
+Start MathExpr
+Start Term
+Start Factor
+Start NewExpr
+Start Match
+[60]  (EndFile)
+End NewExpr
+End Factor
+End Term
+End MathExpr
+End Expr
+End WriteStmt
+End Stmt
+End StmtSeq

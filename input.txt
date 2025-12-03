@@ -1,0 +1,60 @@
+{ TEST PROGRAM FOR & OPERATOR }
+{ Definition: a & b = (a*a) - (b*b) }
+{ Precedence: ^ > & > * > + }
+
+{ 1. Basic Functionality }
+x := 3 & 2;         { Expect 5: (9 - 4) }
+write x;
+y := 5 & 4;         { Expect 9: (25 - 16) }
+write y;
+z := 10 & 5;        { Expect 75: (100 - 25) }
+write z;
+
+{ 2. Precedence: & vs PLUS/MINUS (+ is weaker) }
+va := 2 + 3 & 2;    { Expect 7: 2 + (9-4) }
+write va;
+
+{ 3. Precedence: & vs MULTIPLY (* is weaker) }
+vb := 2 * 3 & 2;    { Expect 10: 2 * (9-4) }
+write vb;
+
+{ 4. Precedence: & vs POWER (^ is stronger) }
+vc := 3 & 2 ^ 2;    { Expect -7: 3 & (4) -> 9 - 16 }
+write vc;
+
+{ 5. Left Associativity of & }
+vd := 5 & 4 & 3;    { Expect 72 }
+write vd;
+
+{ 6. Complex Mixed Expressions }
+ta := 4 & 2 * 2;        { Expect 24 }
+write ta;
+
+tb := 10 + 4 & 2;       { Expect 22 }
+write tb;
+
+tc := 20 - 4 & 3;       { Expect 13 }
+write tc;
+
+td := 2 * 3 & 2 + 1;    { Expect 11 }   
+write td;
+
+{ 7. Negative Results }
+neg := 2 & 5;       { Expect -21 }
+write neg;
+
+{ 8. Zero Handling }
+za := 5 & 5;        { Expect 0 }
+write za;
+zb := 0 & 5;        { Expect -25 }
+write zb;
+
+{ 9. Combined with Parentheses }
+pa := 2 * (3 & 2);  { Expect 10 }
+write pa;
+pb := (2 * 3) & 2;  { Expect 32 }
+write pb;
+
+{ 10. Long Chain }
+final := 3 + 2 * 5 & 4 ^ 1 - 1;
+write final       { Expect 20 }
