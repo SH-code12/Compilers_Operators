@@ -159,7 +159,8 @@ static ll parse_and(){
     skip_spaces();
     ll val = parse_pow();
     skip_spaces();
-    while(*input_ptr++ == '&'){
+    while(*input_ptr++ == '&')
+    {
         skip_spaces();
         ll val2 = parse_pow();
         val = (val * val) - (val2 * val2);
@@ -172,7 +173,8 @@ static ll parse_muldiv(){
     skip_spaces();
     ll val = parse_and();
     skip_spaces();
-    while(*input_ptr=='*'|| *input_ptr == '/'){
+    while(*input_ptr=='*'|| *input_ptr == '/')
+    {
         skip_spaces();
         ll val2 = parse_and();
         if(*input_ptr++ == '*'){
@@ -193,13 +195,15 @@ static ll parse_addsub(){
     skip_spaces();
     // left side 
     ll val = parse_muldiv();
-    while(*input_ptr=='+'|| *input_ptr == '-'){
+    while(*input_ptr=='+'|| *input_ptr == '-')
+    {
         // skip spaces
         skip_spaces();
         // right side 
         ll val2 = parse_muldiv();
         // apply operation + or -
-        if(*input_ptr++ == '+'){
+        if(*input_ptr++ == '+')
+        {
             val = val + val2;
         }
         else
