@@ -20,50 +20,6 @@ public:
         cout << "Program with value " << value << " is being destroyed." << endl;
     }
 
-    // // overload the - operator
-    // Program operator-(const Program& other) {
-    //     return Program(this->value - other.value);
-    // }
-    // // overload the * operator
-    // Program operator*(const Program& other) {
-    //     return Program(this->value * other.value);
-    // }
-
-    // // overload the ^ operator
-    // Program operator^(const Program& other) const {
-    //     int base = value;
-    //     int exp  = other.value;
-    //     if (exp < 0) {
-    //         return Program(0);
-    //     } 
-    //     int result = 1;
-    //     for (int i = 0; i < exp; ++i) {
-    //         result *= base; 
-    //     }
-    //     return Program(result);
-    // }
-
-    // // overload the & operator
-    // Program operator&(const Program& other) {
-    //     return Program((this->value * value) - (other.value * other.value));
-    // }
-
-    // // overload the / operator
-    // Program operator/(const Program& other) {
-    //     if(other.value == 0) {
-    //         cout << "Error: Division by zero!" << endl;
-    //         return Program(0); 
-    //     }
-    //     return Program(this->value / other.value);
-    // }
-
-
-    // // overload the << operator for easy output
-    // friend ostream& operator<<(ostream& os, const Program& tp) {
-    //     os << "Program(value=" << tp.value << ")";
-    //     return os;
-    // }
-
 };
 //////////////////////////////////////////////////////////////////////////////////////////
 // Global variable to hold the input pointer
@@ -148,9 +104,11 @@ static ll parse_primary()
 // Function to compute integer power
 static ll int_pow(ll base, ll exp)
 {
-    if (exp < 0) {
+    skip_spaces();
+    if (exp < 0)
+    {
         return 0;
-    } 
+    }
     ll result = 1;
     while (exp > 0)
     {
@@ -197,8 +155,12 @@ static ll evaluate_expression(const char* expr)
 }
 // parse and : pow [& pow]
 static ll parse_and(){
+
+    skip_spaces();
     ll val = parse_pow();
+    skip_spaces();
     while(*input_ptr++ == '&'){
+        skip_spaces();
         ll val2 = parse_pow();
         val = (val * val) - (val2 * val2);
     }
@@ -207,29 +169,43 @@ static ll parse_and(){
 
 // parse muldiv : and [(*|/) and]
 static ll parse_muldiv(){
+    skip_spaces();
     ll val = parse_and();
+    skip_spaces();
     while(*input_ptr=='*'|| *input_ptr == '/'){
+        skip_spaces();
         ll val2 = parse_and();
         if(*input_ptr++ == '*'){
             val = val * val2;
         }
         else
-            input_ptr++, val = val / val2;
+            {
+                input_ptr++;
+                val = val / val2;
+            }
     }
     return val;
 }
 
 
 static ll parse_addsub(){
+    // skip spacces
+    skip_spaces();
+    // left side 
     ll val = parse_muldiv();
     while(*input_ptr=='+'|| *input_ptr == '-'){
+        // skip spaces
+        skip_spaces();
+        // right side 
         ll val2 = parse_muldiv();
+        // apply operation + or -
         if(*input_ptr++ == '+'){
             val = val + val2;
         }
         else
-            input_ptr++, val = val - val2;
+           {input_ptr++;
+           val = val - val2;
+           }
     }
-    return val
-
+    return val;
 }
