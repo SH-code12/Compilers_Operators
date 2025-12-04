@@ -1,60 +1,55 @@
-{ TEST PROGRAM FOR & OPERATOR }
-{ Definition: a & b = (a*a) - (b*b) }
-{ Precedence: ^ > & > * > + }
+{ Tiny test program for & operator }
 
-{ 1. Basic Functionality }
-x := 3 & 2;         { Expect 5: (9 - 4) }
-write x;
-y := 5 & 4;         { Expect 9: (25 - 16) }
-write y;
-z := 10 & 5;        { Expect 75: (100 - 25) }
-write z;
 
-{ 2. Precedence: & vs PLUS/MINUS (+ is weaker) }
-va := 2 + 3 & 2;    { Expect 7: 2 + (9-4) }
-write va;
+a := 3 & 2;         { Expected 5 }
+write a;
 
-{ 3. Precedence: & vs MULTIPLY (* is weaker) }
-vb := 2 * 3 & 2;    { Expect 10: 2 * (9-4) }
-write vb;
+b := 2 & 6 - 4;     { Expected -36 }
+write b;
 
-{ 4. Precedence: & vs POWER (^ is stronger) }
-vc := 3 & 2 ^ 2;    { Expect -7: 3 & (4) -> 9 - 16 }
-write vc;
+c := 2 & 1 - 3;     { Expected 0  }
+write c;
 
-{ 5. Left Associativity of & }
-vd := 5 & 4 & 3;    { Expect 72 }
-write vd;
+d := 2 - 1 & 4;    { Expected 17 }
+write d;
 
-{ 6. Complex Mixed Expressions }
-ta := 4 & 2 * 2;        { Expect 24 }
-write ta;
+e := 2 & 3 * 2;    { Expected -10 }
+write e;
 
-tb := 10 + 4 & 2;       { Expect 22 }
-write tb;
+f := 3 & 2 ^ 2;    { Expected -7 }
+write f;
 
-tc := 20 - 4 & 3;       { Expect 13 }
-write tc;
+g := (0-2) & 7 & (0-2);  { Expected 2021 }
+write g;
 
-td := 2 * 3 & 2 + 1;    { Expect 11 }   
-write td;
 
-{ 7. Negative Results }
-neg := 2 & 5;       { Expect -21 }
-write neg;
+h := 8 & 2 * 4 - 8; { Expected 232 }
+write h;
 
-{ 8. Zero Handling }
-za := 5 & 5;        { Expect 0 }
-write za;
-zb := 0 & 5;        { Expect -25 }
-write zb;
+i := 5 + 7 & (0-2);   { Expected 50 }
+write i;
 
-{ 9. Combined with Parentheses }
-pa := 2 * (3 & 2);  { Expect 10 }
-write pa;
-pb := (2 * 3) & 2;  { Expect 32 }
-write pb;
 
-{ 10. Long Chain }
-final := 3 + 2 * 5 & 4 ^ 1 - 1;
-write final       { Expect 20 }
+j := 3 & 2 & 1;    { Expected 24 }
+write j;
+
+k := 3 & 2 - 1 & 9 & 7 + 9 & 4;   { Expect -6281 }
+write k;          
+
+l := 8 * 0 + 3 & 5 * 7 & 9 & 10;   { Expect -14784 }
+write l;        
+
+m := 8 & 4 - 4 & 2 / 5 & 7 ;  { Expect 48 }
+write m;          
+
+n := (8 & 4 - 4 & 2) / 5 & 3 ; { Expect 2 }
+write n;           
+
+o := (4 + 3 ) & (4 / 2); { Expect 45 }
+write o;           
+
+p := ( 4 * 5 ) & (( 5 + 2 ) * 0);  { Expect 400 }
+write p;           
+
+q := 3 + 2 * 7 & 4 ^ 2 - 1; { Expect -412 }
+write q         
