@@ -663,7 +663,7 @@ TreeNode* StmtSeq(CompilerInfo* pci, ParseInfo* ppi)
 {
     pci->debug_file.Out("Start StmtSeq");
 
-    TreeNode *first_tree, *last_tree;
+    TreeNode *first_tree =nullptr, *last_tree =nullptr;
 
     // enforce declaraion rules first 
     while(ppi->next_token.type==INT_TYPE||ppi->next_token.type==REAL_TYPE|| ppi->next_token.type==BOOL_TYPE){
@@ -680,8 +680,8 @@ TreeNode* StmtSeq(CompilerInfo* pci, ParseInfo* ppi)
 
       // enforce that only accept the non-declarative statments 
 
-    while(ppi->next_token.type==IF_NODE || ppi->next_token.type==REPEAT_NODE &&
-        ppi->next_token.type==ID_NODE || ppi->next_token.type==READ_NODE ||ppi->next_token.type==WRITE_NODE  )
+    while(ppi->next_token.type==IF || ppi->next_token.type==REPEAT ||
+        ppi->next_token.type==ID || ppi->next_token.type==READ ||ppi->next_token.type==WRITE )
     {
         TreeNode* next_tree=Stmt(pci, ppi);
         if(first_tree==nullptr)
@@ -808,8 +808,8 @@ struct SymbolTable
         AllocateAndCopy(&vi->name, name);
         var_info[h]=vi;
     }
-        // VariableInfo* prev=0;
-        // VariableInfo* cur=var_info[h];
+    //     VariableInfo* prev=0;
+    //     VariableInfo* cur=var_info[h];
 
     //     while(cur)
     //     {
@@ -935,12 +935,14 @@ void Analyze(TreeNode* node, SymbolTable* symbol_table)
         else if(node->oper==EQUAL || node->oper==LESS_THAN)
         {
             // equality/less-than allowed on numeric types only
+
             if((left!=INTEGER && left!=REAL) || (right!=INTEGER && right!=REAL)) printf("ERROR comparison on non-numeric\n");
             node->expr_data_type=BOOLEAN;
         }
         else
         {
         // arithmetic operators
+
             if(left==BOOLEAN || right==BOOLEAN) printf("ERROR arithmetic on boolean\n");
             if(left==REAL || right==REAL) node->expr_data_type=REAL; else node->expr_data_type=INTEGER;
         }
@@ -951,8 +953,22 @@ void Analyze(TreeNode* node, SymbolTable* symbol_table)
     if(node->node_kind==ASSIGN_NODE)
     {
         VariableInfo* vi=symbol_table->Find(node->id);
+        // enforce boolean to boolean 
+        if(vi->var_type==2&& node->child[0]->expr_data_type!=BOOLEAN){
+            printf("Cannot assign non-boolean to boolean datatype");
+        }
+        // enforce int to int
+        if(vi->var_type==0&& node->child[0]->expr_data_type!=INTEGER){
+            printf("Cannot assign non-integar to int datatype");
+        }
+        // allow int or real to be stored in real
+        if(vi->var_type==1&& node->child[0]->expr_data_type==BOOLEAN){
+            printf("Cannot assign boolean to real datatype");
+        }
         if(!vi) printf("ERROR Assign to undeclared var %s\n", node->id);
     }
+    if(node->sibling) Analyze(node->sibling, symbol_table);
+
 }
 ////////////////////////////////////////////////////////////////////////////////////
 // Code Generator //////////////////////////////////////////////////////////////////

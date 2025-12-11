@@ -1,55 +1,15 @@
-{ Tiny test program for & operator }
-
-
-a := 3 & 2;         { Expected 5 }
-write a;
-
-b := 2 & 6 - 4;     { Expected -36 }
-write b;
-
-c := 2 & 1 - 3;     { Expected 0  }
-write c;
-
-d := 2 - 1 & 4;    { Expected 17 }
-write d;
-
-e := 2 & 3 * 2;    { Expected -10 }
-write e;
-
-f := 3 & 2 ^ 2;    { Expected -7 }
-write f;
-
-g := (0-2) & 7 & (0-2);  { Expected 2021 }
-write g;
-
-
-h := 8 & 2 * 4 - 8; { Expected 232 }
-write h;
-
-i := 5 + 7 & (0-2);   { Expected 50 }
-write i;
-
-
-j := 3 & 2 & 1;    { Expected 24 }
-write j;
-
-k := 3 & 2 - 1 & 9 & 7 + 9 & 4;   { Expect -6281 }
-write k;          
-
-l := 8 * 0 + 3 & 5 * 7 & 9 & 10;   { Expect -14784 }
-write l;        
-
-m := 8 & 4 - 4 & 2 / 5 & 7 ;  { Expect 48 }
-write m;          
-
-n := (8 & 4 - 4 & 2) / 5 & 3 ; { Expect 2 }
-write n;           
-
-o := (4 + 3 ) & (4 / 2); { Expect 45 }
-write o;           
-
-p := ( 4 * 5 ) & (( 5 + 2 ) * 0);  { Expect 400 }
-write p;           
-
-q := 3 + 2 * 7 & 4 ^ 2 - 1; { Expect -412 }
-write q         
+int x;
+int y;
+real z;
+bool b;
+x := 10;
+y := 5;
+z := 2.5;
+b := x < y;
+if 0 < x then
+    z := x + z * 2.0;
+    write z;
+end;
+repeat
+    x := x - 1;
+until x = 0;
