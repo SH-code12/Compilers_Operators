@@ -1,0 +1,44 @@
+/*
+===========================
+TEST CASES FOR ASSIGNMENT 2
+
+===========================
+
+-- DECLARATIONS --
+int a;
+int b;
+real x;
+real y;
+bool flag1;
+bool flag2;
+
+-- VALID CASES (SHOULD PASS) --
+1) a := 5;
+2) b := 10;
+3) a := a + b;
+4) x := 3.14;
+5) y := x * 2.0;
+6) x := a + y;          // int + real → real (allowed)
+7) flag1 := true;
+8) flag2 := false;
+9) flag1 := not flag2;
+10) flag1 := flag1 and flag2;
+11) flag2 := flag1 or flag2;
+12) if flag1 then a := 7; end
+13) repeat a := a - 1; until flag2
+14) if flag1 then x := x + 1.5; end
+15) y := (x + 2.0) * 3.0;
+
+-- TYPE ERROR CASES (SHOULD PRODUCE COMPILER ERROR) --
+16) a := x;             // ERROR: int := real
+17) x := flag1;         // ERROR: real := bool
+18) flag1 := a;         // ERROR: bool := int
+19) flag2 := x > y;     // ERROR: cannot assign comparison result to bool (comparison result not allowed)
+20) a := flag1 + b;     // ERROR: arithmetic on boolean
+21) x := x and y;       // ERROR: boolean operator on real
+22) if a then b := 1; end   // ERROR: int not allowed in if condition
+23) repeat x := x - 1; until y   // ERROR: real in repeat condition
+24) a := a < b;          // ERROR: cannot assign bool to int
+25) x := a < b;          // ERROR: cannot assign bool to real
+
+*/
