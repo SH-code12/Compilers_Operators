@@ -719,8 +719,13 @@ void PrintTree(TreeNode* node, int sh=0)
     printf("[%s]", NodeKindStr[node->node_kind]);
 
     if(node->node_kind==OPER_NODE) printf("[%s]", TokenTypeStr[node->oper]);
-    else if(node->node_kind==NUM_NODE) printf("[%d]", node->num);
-    else if(node->node_kind==ID_NODE || node->node_kind==READ_NODE || node->node_kind==ASSIGN_NODE) printf("[%s]", node->id);
+    else if(node->node_kind==NUM_NODE) {
+        if(node->expr_data_type == REAL)
+            printf("[%g]", node->realnum); // Print real number
+        else
+            printf("[%d]", node->num);     // Print integer
+    }    
+else if(node->node_kind==ID_NODE || node->node_kind==READ_NODE || node->node_kind==ASSIGN_NODE) printf("[%s]", node->id);
 
     if(node->expr_data_type!=VOID) printf("[%s]", ExprDataTypeStr[node->expr_data_type]);
 
