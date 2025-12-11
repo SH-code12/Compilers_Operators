@@ -59,7 +59,12 @@ p := ( 4 * 5 ) & (( 5 + 2 ) * 0);  { Expect 400 }
 write p;           
 
 q := 3 + 2 * 7 & 4 ^ 2 - 1; { Expect -412 }
-write q         
+write q  
+
+
+if 4 & 5:
+    write 5;
+end
 */
 bool Equals(const char* a, const char* b)
 {

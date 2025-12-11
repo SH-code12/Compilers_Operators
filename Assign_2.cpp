@@ -367,14 +367,14 @@ TreeNode* NewExpr(CompilerInfo* pci, ParseInfo* ppi)
         {
             if(num_str[i]=='.')
             {
-                is_real = true;
+                is_real = true; 
                 break;
             }
         }
         if(is_real)
         {
-            tree->realnum = atof(num_str);
             tree->expr_data_type = REAL;
+            tree->realnum = atof(num_str);
         }
         else
         {
@@ -652,9 +652,6 @@ TreeNode* Stmt(CompilerInfo* pci, ParseInfo* ppi)
     else if(ppi->next_token.type==ID) tree=AssignStmt(pci, ppi);
     else if(ppi->next_token.type==READ) tree=ReadStmt(pci, ppi);
     else if(ppi->next_token.type==WRITE) tree=WriteStmt(pci, ppi);
-    // added for extended types : Assignment 2
-    else if(ppi->next_token.type==INT_TYPE || ppi->next_token.type==REAL_TYPE || ppi->next_token.type==BOOL_TYPE) tree=DeclStmt(pci, ppi);
-
     else throw 0;
 
     pci->debug_file.Out("End Stmt");
@@ -666,17 +663,34 @@ TreeNode* StmtSeq(CompilerInfo* pci, ParseInfo* ppi)
 {
     pci->debug_file.Out("Start StmtSeq");
 
-    TreeNode* first_tree=Stmt(pci, ppi);
-    TreeNode* last_tree=first_tree;
+    TreeNode *first_tree, *last_tree;
 
-    // If we did not reach one of the Follow() of StmtSeq(), we are not done yet
-    while(ppi->next_token.type!=ENDFILE && ppi->next_token.type!=END &&
-        ppi->next_token.type!=ELSE && ppi->next_token.type!=UNTIL)
+    // enforce declaraion rules first 
+    while(ppi->next_token.type==INT_TYPE||ppi->next_token.type==REAL_TYPE|| ppi->next_token.type==BOOL_TYPE){
+        TreeNode* node = DeclStmt(pci, ppi);
+
+        if(first_tree==nullptr)
+            first_tree = node;
+        else
+            last_tree->sibling = node;
+        last_tree = node;
+
+        Match(pci, ppi, SEMI_COLON);  
+      }
+
+      // enforce that only accept the non-declarative statments 
+
+    while(ppi->next_token.type==IF_NODE || ppi->next_token.type==REPEAT_NODE &&
+        ppi->next_token.type==ID_NODE || ppi->next_token.type==READ_NODE ||ppi->next_token.type==WRITE_NODE  )
     {
-        Match(pci, ppi, SEMI_COLON);
         TreeNode* next_tree=Stmt(pci, ppi);
-        last_tree->sibling=next_tree;
-        last_tree=next_tree;
+        if(first_tree==nullptr)
+            first_tree = next_tree;
+        else
+            last_tree->sibling = next_tree;
+        last_tree = next_tree;
+
+        Match(pci, ppi, SEMI_COLON);
     }
 
     pci->debug_file.Out("End StmtSeq");
