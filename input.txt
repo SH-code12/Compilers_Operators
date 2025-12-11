@@ -1,15 +1,48 @@
-int x;
-int y;
+int i;
+int j;
+int k;
+real x;
+real y;
 real z;
 bool b;
-x := 10;
-y := 5;
-z := 2.5;
-b := x < y;
-if 0 < x then
-    z := x + z * 2.0;
-    write z;
+bool bi;
+bool bii;
+
+i := 10;
+j := 20;
+x := 2.5;
+y := 4.0;
+
+i := i + j;
+j := j - 5;
+k := i * j;
+i := k / 10;
+j := i ^ 2;
+
+x := x + y;
+y := y - 0.5;
+z := x * y;
+x := z / 2.0;
+y := x ^ 2.0;
+
+z := i + x;
+z := j * y;
+
+b := i < j;
+bi := x = y;
+bii := b & bi;
+
+if i < 1000 then
+    i := i + 1;
+    x := x * 2.0;
+    b := i < x;
 end;
+
 repeat
-    x := x - 1;
-until x = 0;
+    i := i - 1;
+    x := x - 1.0;
+until i = 0;
+
+write i;
+write x;
+write bii;
