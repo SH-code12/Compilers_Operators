@@ -1,3 +1,5 @@
+{ Tiny test program }
+
 int i;
 int j;
 int k;
@@ -8,41 +10,82 @@ bool b;
 bool bi;
 bool bii;
 
+{ Initialization}
 i := 10;
 j := 20;
 x := 2.5;
 y := 4.0;
 
+{ rint initial values }
+write i;
+write j;
+write x;
+write y;
+
+{Integer Arithmetic}
 i := i + j;
 j := j - 5;
 k := i * j;
 i := k / 10;
 j := i ^ 2;
 
+{ print integer calculation results }
+write i;
+write j;
+write k;
+
+{ real Arithmetic}
 x := x + y;
 y := y - 0.5;
 z := x * y;
 x := z / 2.0;
 y := x ^ 2.0;
 
-z := i + x;
-z := j * y;
+{ print real calculation results }
+write x;
+write y;
+write z;
 
+{ mixed Arithmetic }
+z := i + x;
+write z; 
+
+z := j * y;
+write z; 
+
+{ Boolean Logic }
 b := i < j;
-bi := x = y;
+bi := x < y;
+bii := i = k;
+
 bii := b & bi;
 
-if i < 1000 then
+{ print boolean results }
+write b;
+write bi;
+write bii;
+
+{ condition}
+if bii then
     i := i + 1;
     x := x * 2.0;
-    b := i < x;
+    
+    
+    write i;
+    write x;
 end;
 
+{ loop }
 repeat
     i := i - 1;
     x := x - 1.0;
-until i = 0;
+    b := i < 0;
+    
+    write i;
+    write x;
+until b;
 
+{ Final Results }
 write i;
 write x;
 write bii;
