@@ -1,0 +1,127 @@
+
+{ ---------- Declarations (Test case 1) ---------- }
+int i;
+int j;
+int k;
+real x;
+real y;
+real z;
+bool b;
+bool ba;
+bool bc;
+
+{ ---------- Initialization (Test case 2) ---------- }
+i := 5;
+j := 10;
+x := 2.5;
+y := 4.0;
+b := false;
+
+write i;
+write j;
+write x;
+write y;
+write b;
+
+{ ---------- Integer arithmetic + - * / ^ (Test cases 3–7) ---------- }
+k := i + j;        { TC3: int + int }
+write k;
+
+k := j - i;        { TC4: int - int }
+write k;
+
+k := i * j;        { TC5: int * int }
+write k;
+
+k := j / i;        { TC6: int / int }
+write k;
+
+k := i ^ 2;        { TC7: int power }
+write k;
+
+{ ---------- Real arithmetic (Test cases 8–10) ---------- }
+z := x + y;        { TC8: real + real }
+write z;
+
+z := y - x;        { TC9: real - real }
+write z;
+
+z := x * y;        { TC10: real * real }
+write z;
+
+{ ---------- Mixed arithmetic (int → real widening) (Test cases 11–12) ---------- }
+z := i + x;        { TC11: int + real }
+write z;
+
+z := j * y;        { TC12: int * real }
+write z;
+
+{ ---------- Comparisons produce BOOLEAN (Test cases 13–14) ---------- }
+b := i < j;        { TC13: int < int }
+write b;
+
+ba := x < y;       { TC14: real < real }
+write ba;
+
+{ ---------- Equality operator (Test case 15) ---------- }
+bc := i = j;       { TC15: int = int }
+write bc;
+
+{ ---------- Boolean AND (Test case 16) ---------- }
+b := b & ba;       { TC16: boolean AND }
+write b;
+
+{ ---------- IF statement with boolean condition (Test case 17) ---------- }
+if ba then
+    i := i + 1;
+    x := x * 2.0;
+    write i;
+    write x;
+end;
+
+{ ---------- REPEAT–UNTIL loop (Test case 18) ---------- }
+repeat
+    i := i - 1;
+    write i;
+until i < 3;
+
+{ ---------- Boolean assignment from expression (Test case 19) ---------- }
+b := i < j;
+write b;
+
+{ ---------- Final mixed computations (Test case 20) ---------- }
+z := i + y;
+write z;
+
+{ ---------- ERROR TEST CASES ---------- }
+
+{ real → int assignment (narrowing error) }
+i := x;       { ERROR: cannot assign real to int }
+
+{ numeric to boolean assignment }
+b := 1;       { ERROR: cannot assign int to bool }
+
+{ boolean used in arithmetic }
+k := b + i;   { ERROR: boolean in arithmetic }
+
+{ arithmetic result assigned to boolean }
+b := i + j;   { ERROR: cannot assign int to boolean }
+
+{ non-boolean IF condition }
+if i then
+    write i;
+end;          { ERROR: condition must be boolean }
+
+{ non-boolean REPEAT condition }
+repeat
+    i := i - 1;
+until i;     { ERROR: condition must be boolean }
+
+{ comparison between incompatible types }
+b := b = i;   { ERROR: boolean = int }
+
+{ boolean AND with non-boolean }
+b := b & i;   { ERROR: boolean AND with int }
+
+{ undeclared variable usage }
+k := m + 1;   { ERROR: 'm' not declared }
